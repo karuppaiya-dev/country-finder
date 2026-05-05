@@ -18,7 +18,7 @@ A web application that lets you search for any country and highlights it on an i
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/KaruppaiyaMurugan/country-finder.git](https://github.com/karuppaiya-dev/country-finder.git)
+git clone https://github.com/karuppaiya-dev/country-finder.git
 cd country-finder
 ```
 
