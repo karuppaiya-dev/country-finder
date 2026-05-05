@@ -28,12 +28,36 @@ npm install
 ```
 
 ### 3. Setup PostgreSQL Database
-Make sure PostgreSQL is running and create the database:
+Make sure PostgreSQL is running and follow these steps:
+
+**Step 1 — Create the database:**
 ```sql
 CREATE DATABASE world;
 ```
 
-Then import your countries table with `country_name` and `country_code` columns.
+**Step 2 — Create the table:**
+```sql
+CREATE TABLE countries (
+  country_code VARCHAR(10),
+  country_name VARCHAR(100)
+);
+```
+
+**Step 3 — Import `countries.csv`:**
+```sql
+\copy countries(country_code, country_name) 
+FROM '/path/to/countries.csv' 
+DELIMITER ',' 
+CSV HEADER;
+```
+
+> Replace `/path/to/countries.csv` with the actual path of your file.  
+> Example: `FROM 'C:/Users/karuppaiya/Desktop/countries.csv'`
+
+**Step 4 — Verify the import:**
+```sql
+SELECT * FROM countries LIMIT 5;
+```
 
 ### 4. Create `.env` file
 Create a `.env` file in the root of the project:
@@ -61,6 +85,7 @@ country-finder/
 ├── views/
 │   └── index.ejs
 ├── index.js
+├── countries.csv
 ├── .env
 ├── .gitignore
 └── README.md
@@ -79,8 +104,4 @@ country-finder/
 ## 👤 Author
 
 **Karuppaiya Murugan**  
-GitHub: [@KaruppaiyaMurugan](https://github.com/Karuppaiya-dev)
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
+GitHub: [@karuppaiya-dev](https://github.com/karuppaiya-dev)
